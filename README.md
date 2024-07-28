@@ -78,7 +78,7 @@ Once you have successfully run this command, all the figures will be stored in t
 
 Due to fluctuations in hardware performance, the generated figures may differ slightly from those in the paper.
 
-The matching relationship between the names of the generated figures and those in the paper is the same as above.
+The matching relationship between the names of the generated figures and those in the paper is the same as the table above.
 
 **Note:** To shorten the reproduction time, we did not include Figure 11 and Table IV from the paper in the scripts, as they involve the entire fine-tuning process over the whole dataset. We also separated the reproduction of Figure 14 from the `RUNME-b.sh` because it requires a multi-GPU server with at least 4 NVIDIA A6000. However, we have prepared separate scripts for reproducing them.
 
@@ -96,7 +96,7 @@ bash ./scrips/ablation-predictor/run.sh
 
 Once you have successfully run this command, you will get a figure with three loss curves stored in the directory `output_figures/`.
 
-We decided not to reproduce Figure 11 (Right) because it is just the visualization of a few prediction results.
+We decided not to reproduce Figure 11 (Right) because it merely visualizes a few prediction results, while the accuracy of the predictor has already been demonstrated by Figure 11 (Left).
 
 2. **Table IV Reproduction.**
 
@@ -159,3 +159,11 @@ bash ./scrips/scale-machines/run.sh
 ```
 
 Once you have successfully run this command, you will get the resulting figure stored in the directory `output_figures/`.
+
+### Detailed Reproduction: Plotting for Each Experiments.
+
+We provide a single script for each experiment in the directory `scripts/`.
+
+The correspondence between the names of the generated figures and those in the paper is detailed in the table above.
+
+To reproduce a specific experiment, locate the corresponding subdirectory and execute the script within it. The resulting figure will be stored in the same subdirectory.
