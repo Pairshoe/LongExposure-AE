@@ -60,7 +60,7 @@ The matching relationship between the names of the generated figures and those i
 | exp-ablation-predictor.png | Figure 11 (Left) |
 | exp-ablation-operator-attn.png | Figure 12 (Left) |
 | exp-ablation-operator-mlp.png | Figure 12 (Right) |
-| exp-ablation-operator-mlp.png | Figure 12 (Right) |
+| exp-scale-model.png | Figure 14 |
 
 ### In-depth Reproduction: Plotting from Actual Run
 
@@ -98,7 +98,7 @@ Once you have successfully run this command, you will get a figure with three lo
 
 We decided not to reproduce Figure 11 (Right) because it is just the visualization of a few prediction results.
 
-2. Table IV Reproduction.
+2. **Table IV Reproduction.**
 
 **Hardware requirements: 1 NVIDIA A100 GPU.**
 
@@ -140,7 +140,7 @@ lm_eval --model hf \
     --batch_size 4
 ```
 
-3. Figure 14 Reproduction.
+3. **Figure 14 Reproduction.**
 
 **Hardware requirements: 4 NVIDIA A6000 GPUs.**
 
