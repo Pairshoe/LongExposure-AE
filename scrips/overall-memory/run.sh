@@ -38,6 +38,7 @@ fi
 echo "PYTHONPATH: $PYTHONPATH"
 
 # ------------------------------350m------------------------------
+mkdir -p "$script_dir/output/opt350m"
 python "$script_dir/torch_full.py" \
     --model_name facebook/opt-350m \
     --data ./dataset/valid_opt.jsonl \
@@ -71,6 +72,7 @@ python "$script_dir/exposer_lora_opt.py" \
     > "$script_dir/output/opt350m/l128_exposer_lora_opt.log"
 
 # ------------------------------1.3b------------------------------
+mkdir -p "$script_dir/output/opt1.3b"
 python "$script_dir/torch_full.py" \
     --model_name facebook/opt-1.3b \
     --data ./dataset/valid_opt.jsonl \
@@ -105,8 +107,8 @@ python "$script_dir/exposer_lora_opt.py" \
 
 python "$script_dir/plot_memory_opt-350m.py" \
     --save_json "$save_json_350m" \
-    --save_pdf "$output_dir/exp-memory-350m.pdf"
+    --save_png "$output_dir/exp-memory-350m.png"
 
 python "$script_dir/plot_memory_opt-1.3b.py" \
     --save_json "$save_json_1b" \
-    --save_pdf "$output_dir/exp-memory-1.3b.pdf"
+    --save_png "$output_dir/exp-memory-1.3b.png"

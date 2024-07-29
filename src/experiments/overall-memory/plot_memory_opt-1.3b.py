@@ -5,7 +5,7 @@ import json
 
 parser = argparse.ArgumentParser(description='Attn block sparse')
 parser.add_argument('--save_json', type=str, default=None, help='save')
-parser.add_argument('--save_pdf', type=str, default=None, help='save')
+parser.add_argument('--save_png', type=str, default=None, help='save')
 
 args = parser.parse_args()
 
@@ -61,4 +61,4 @@ plt.grid(axis='y', linestyle='--', alpha=0.6)
 
 # Saving the figure  
 plt.tight_layout()  
-plt.savefig(args.save_pdf) 
+plt.savefig(args.save_png) 

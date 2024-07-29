@@ -33,7 +33,7 @@ else
         export PYTHONPATH="$PYTHONPATH:$src_dir"
     fi
 fi
-
+mkdir -p "$script_dir/output"
 python "$script_dir/benchmark_attn.py"  \
         --save_json "$save_json_attn" \
         > "$script_dir/output/attn.log"

@@ -29,6 +29,7 @@ else
     fi
 fi
 
+mkdir "$script_dir/output"
 python "$script_dir/profile_sparse_pattern.py" \
     --data ./dataset/valid_opt.jsonl \
 

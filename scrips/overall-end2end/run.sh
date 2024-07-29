@@ -27,6 +27,7 @@ else
 fi
 
 # ------------------------------1.3b_512------------------------------
+mkdir -p "$script_dir/output/opt1.3b_512"
 python "$script_dir/torch_full.py" \
         --model_name facebook/opt-1.3b \
         --data ./dataset/valid_opt.jsonl \
@@ -65,6 +66,7 @@ python "$script_dir/exposer_bitfit.py" \
         --seq_len 512 --batch_size 4 > "$script_dir/output/opt1.3b_512/exposer_bitfit.log"
 
 #-----------------------------1.3b_1024------------------------------
+mkdir -p "$script_dir/output/opt1.3b_1024"
 python "$script_dir/torch_full.py" \
         --model_name facebook/opt-1.3b \
         --data ./dataset/valid_opt.jsonl \
@@ -103,6 +105,7 @@ python "$script_dir/exposer_bitfit.py" \
         --seq_len 1024 --batch_size 4 > "$script_dir/output/opt1.3b_1024/exposer_bitfit.log"
 
 # ------------------------------2.7b_512------------------------------
+mkdir -p "$script_dir/output/opt2.7b_512"
 python "$script_dir/torch_full.py" \
         --model_name facebook/opt-2.7b \
         --data ./dataset/valid_opt.jsonl \
@@ -141,6 +144,7 @@ python "$script_dir/exposer_bitfit.py" \
         --seq_len 512 --batch_size 4 > "$script_dir/output/opt2.7b_512/exposer_bitfit.log"
 
 #-----------------------------2.7b_1024------------------------------
+mkdir -p "$script_dir/output/opt2.7b_1024"
 python "$script_dir/torch_full.py" \
         --model_name facebook/opt-2.7b \
         --data ./dataset/valid_opt.jsonl \

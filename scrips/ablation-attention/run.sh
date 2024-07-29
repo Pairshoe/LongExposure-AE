@@ -32,6 +32,7 @@ fi
 python "$script_dir/profile_sparse_pattern.py" \
     --data ./dataset/valid_opt.jsonl \
 
+mkdir -p "$script_dir/output"
 python "$script_dir/benchmark_sparse_attention.py" \
     --save_json "$save_json" \
     > "$script_dir/output/sparse_attention.log"

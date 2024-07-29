@@ -31,4 +31,4 @@ python "$script_dir/loss_bigbird.py"  \
 
 python "$script_dir/plot_loss_curve.py" \
         --cur_path "$script_dir" \
-        --output "$output_dir/exp-ablation-predictor-loss.pdf"
+        --output "$output_dir/exp-ablation-predictor-loss.png"

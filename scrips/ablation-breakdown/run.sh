@@ -28,7 +28,7 @@ else
     fi
 fi
 
-
+mkdir -p "$script_dir/output"
 python "$script_dir/exposer_adapter.py" \
         --model_name facebook/opt-1.3b \
         --data ./dataset/valid_opt.jsonl  \
@@ -81,4 +81,4 @@ python "$script_dir/torch_bitfit.py" \
 
 python "$script_dir/plot_breakdown.py" \
         --save_json "$save_json" \
-        --output "$output_dir/ablation-breakdown.png" 
+        --output "$output_dir/exp-ablation-breakdown.png" 
