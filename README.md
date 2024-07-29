@@ -130,8 +130,9 @@ pip install lm-evel
 To evaluate OPT-350M, execute the following command:
 
 ```
+# Execute in the project directory (LongExposure-AE)
 lm_eval --model hf \
-    --model_args pretrained=./checkpoints/... \
+    --model_args pretrained=./checkpoints/opt-350m-alpaca-ours  \
     --tasks piqa,winogrande,rte,copa,hellaswag \
     --device cuda:0 \
     --batch_size 6
@@ -142,14 +143,15 @@ The accuracy of each downstream tasks will output to the console. Adjust the `ba
 Similarly, to evaluate OPT-1.3B and OPT-2.7B, execute the following commands:
 
 ```
+# Execute in the project directory (LongExposure-AE)
 lm_eval --model hf \
-    --model_args pretrained=./checkpoints/... \
+    --model_args pretrained=./checkpoints/opt-1.3b-alpaca-ours \
     --tasks piqa,winogrande,rte,copa,hellaswag \
     --device cuda:0 \
     --batch_size 6
 
 lm_eval --model hf \
-    --model_args pretrained=./checkpoints/... \
+    --model_args pretrained=./checkpoints/opt-2.7b-alpaca-ours \
     --tasks piqa,winogrande,rte,copa,hellaswag \
     --device cuda:0 \
     --batch_size 6
