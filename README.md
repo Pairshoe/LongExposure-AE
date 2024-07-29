@@ -84,9 +84,9 @@ The matching relationship between the names of the generated figures and those i
 
 1. **Figure 11 Reproduction.**
 
-**Hardware requirements: 1 NVIDIA A100 GPU.**
-
-**Estimated Time: about 6 hours.**
+> **Hardware requirements: 1 NVIDIA A100 GPU.**
+> 
+> **Estimated Time: about 6 hours.**
 
 To reproduce Figure 11(Left), execute the following command:
 
@@ -104,7 +104,21 @@ We decided not to reproduce Figure 11 (Right) because it merely visualizes a few
 > 
 > **Estimated Time: about 6 hours.**
 
-We provide the fine-tuned model weights in the directory `checkpoints/` so that you can directly perform inference on downstream tasks for evaluation.
+We provide the fine-tuned model weights in the checkpoints/ directory, allowing you to directly perform inference on downstream tasks for evaluation.
+
+Due to the large size of the model weights, we have split them into multiple sub-units and used Git LFS to upload them to GitHub.
+
+To retrieve the model weights, first execute the following command to pull the large files:
+
+```
+git lfs pull
+```
+
+Next, run the following scripts to concatenate the sub-units:
+
+```
+bash ./checkpoints/cat_tensor.sh
+```
 
 We use the framework lm-evaluation-harness (https://github.com/EleutherAI/lm-evaluation-harness) from EleutherAI to simplify the evaluation, which can be installed by:
 
