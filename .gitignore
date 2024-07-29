@@ -163,8 +163,8 @@ cython_debug/
 
 *.pdf
 *.csv
-checkpoints
-*reference/*
+checkpoints/lora/*
+checkpoints/placeholder.md
 *result
 *__pycache__
 *.DS_Store
