@@ -117,7 +117,8 @@ git lfs pull
 Next, run the following scripts to concatenate the sub-units:
 
 ```
-bash ./checkpoints/cat_tensor.sh
+cd checkpoints
+bash cat_tensor.sh
 ```
 
 We use the framework lm-evaluation-harness (https://github.com/EleutherAI/lm-evaluation-harness) from EleutherAI to simplify the evaluation, which can be installed by:
