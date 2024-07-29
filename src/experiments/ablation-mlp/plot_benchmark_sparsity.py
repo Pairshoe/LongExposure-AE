@@ -108,7 +108,7 @@ if __name__ == '__main__':
     plt.yticks(np.arange(0, 1.1, 0.2), fontsize=10)
 
     # Creating legend & title for the bar plot  
-    plt.legend(loc='upper right', fontsize=10, frameon=False)
+    # plt.legend(loc='upper right', fontsize=10, frameon=False)
     plt.grid(axis='y', linestyle='--', alpha=0.6, linewidth=0.5)
 
     # Saving the figure (optional)  
