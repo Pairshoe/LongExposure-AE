@@ -7,6 +7,8 @@ src_dir=$(pwd)/src
 script_dir=$(pwd)/src/experiments/overall-end2end
 save_json="$script_dir/record.json"
 
+output_dir=$(pwd)/output_figures
+
 # 检查并创建或清空 JSON 文件
 if [ ! -f "$save_json" ]; then
     echo "[]" > "$save_json"
@@ -178,4 +180,4 @@ python "$script_dir/exposer_bitfit.py" \
 
 
 
-python "$script_dir/plot_end2end_a100.py" --save_json "$save_json" --output "$script_dir/exp-end2end-a100.pdf"
+python "$script_dir/plot_end2end_a100.py" --save_json "$save_json" --output "$output_dir/exp-end2end-a100.png"

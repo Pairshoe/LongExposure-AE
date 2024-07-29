@@ -1,5 +1,6 @@
 import argparse
 
+import json
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -24,7 +25,8 @@ parser.add_argument('--sparsity_config', type=str, default='bigbird', choices=['
 parser.add_argument('--mlp_block_size', type=int, default=128, help='mlp block size')
 parser.add_argument('--mlp_threshold', type=float, default=0.80, help='mlp threshold')
 parser.add_argument('--local_rank', type=int, default=-1, help='local rank')
-
+parser.add_argument('--save_json', type=str, help='save json file')
+parser.add_argument('--num_cards', type=int, default=1, help='number of cards')
 
 if __name__ == '__main__':
     args = parser.parse_args()
@@ -122,4 +124,17 @@ if __name__ == '__main__':
 
     all_end.record()
     torch.cuda.synchronize()
+    with open(args.save_json, 'r') as f:
+        data_re = json.load(f)
+    
+    record = {
+        "task" : 'exposer + adapter',
+        "num_cards" : args.num_cards,
+        "time" : all_start.elapsed_time(all_end)
+    }
+    if record['task'] not in [d['task'] for d in data_re]:
+        data_re.append(record)
+    with open(args.save_json, 'w') as f:
+        json.dump(data_re, f, indent=4)
+    
     print('total time:', all_start.elapsed_time(all_end))

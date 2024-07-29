@@ -1,5 +1,6 @@
 import argparse
 
+import transformers
 import os
 import torch
 from torch.utils.data import DataLoader
@@ -25,13 +26,15 @@ if __name__ == '__main__':
     torch.manual_seed(args.seed)
 
     model_name = args.model_name.split('/')[-1]
-    init_checkpoint = './reference/' + model_name + '/pytorch_model.bin'
+    # init_checkpoint = './reference/' + model_name + '/pytorch_model.bin'
+    hf_model = transformers.OPTForCausalLM.from_pretrained('facebook/opt-1.3b')
+    
     mlp_activations_path = './src/experiments/ablation-mlp/data/' + model_name + '/mlp_activations.npy'
 
     config = get_opt_profile_mlp_config(model_name=args.model_name)
     model = OPTForCausalLM(config)
-
-    state_dict = torch.load(init_checkpoint, map_location='cpu')
+    state_dict = hf_model.state_dict()
+    # state_dict = torch.load(init_checkpoint, map_location='cpu')
     for k, v in state_dict.items():
         if k in model.state_dict():
             model.state_dict()[k].copy_(v)

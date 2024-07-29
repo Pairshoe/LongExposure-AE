@@ -6,6 +6,8 @@ current_dir=$(pwd)
 src_dir=$(pwd)/src
 script_dir=$(pwd)/src/experiments/ablation-predictor
 
+output_dir=$(pwd)/output_figures
+
 # 检查 src 目录是否在 PYTHONPATH 中
 if [ -z "$PYTHONPATH" ]; then
     export PYTHONPATH="$src_dir"
@@ -29,4 +31,4 @@ python "$script_dir/loss_bigbird.py"  \
 
 python "$script_dir/plot_loss_curve.py" \
         --cur_path "$script_dir" \
-        --output "$script_dir/exp-ablation-predictor-loss.pdf"
+        --output "$output_dir/exp-ablation-predictor-loss.pdf"

@@ -8,6 +8,8 @@ script_dir=$(pwd)/src/experiments/overall-memory
 save_json_350m="$script_dir/record_350m.json"
 save_json_1b="$script_dir/record_1.3b.json"
 
+output_dir=$(pwd)/output_figures
+
 # 检查并创建或清空 JSON 文件
 if [ ! -f "$save_json_350m" ]; then
     echo "[]" > "$save_json_350m"
@@ -103,8 +105,8 @@ python "$script_dir/exposer_lora_opt.py" \
 
 python "$script_dir/plot_memory_opt-350m.py" \
     --save_json "$save_json_350m" \
-    --save_pdf "$script_dir/exp-memory-350m.pdf"
+    --save_pdf "$output_dir/exp-memory-350m.pdf"
 
 python "$script_dir/plot_memory_opt-1.3b.py" \
     --save_json "$save_json_1b" \
-    --save_pdf "$script_dir/exp-memory-1.3b.pdf"
+    --save_pdf "$output_dir/exp-memory-1.3b.pdf"

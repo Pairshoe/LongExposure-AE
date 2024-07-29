@@ -1,19 +1,35 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import argparse
+import json
 
+parser = argparse.ArgumentParser(description='Attn block sparse')
+parser.add_argument('save_json', type=str, help='save json file')
+parser.add_argument('output', type=str, help='output file')
+
+args = parser.parse_args()
+with open(args.save_json, 'r') as f:
+    data_real = json.load(f) 
 
 data = [
-    # OPT-1.3b batch_size 4 seq_len 512
-    # {'task': 'exposer + lora',    'num_cards': 1, 'time': 0.0},
-    # {'task': 'exposer + lora',    'num_cards': 2, 'time': 0.0},
-    # {'task': 'exposer + lora',    'num_cards': 4, 'time': 0.0},
-    # {'task': 'exposer + adapter', 'num_cards': 1, 'time': 0.0},
-    # {'task': 'exposer + adapter', 'num_cards': 2, 'time': 0.0},
-    # {'task': 'exposer + adapter', 'num_cards': 4, 'time': 0.0},
-    # {'task': 'exposer + bitfit',  'num_cards': 1, 'time': 0.0},
-    # {'task': 'exposer + bitfit',  'num_cards': 2, 'time': 0.0},
-    # {'task': 'exposer + bitfit',  'num_cards': 4, 'time': 0.0},
+    # OPT-1.3b batch_size 2 seq_len 1024
+    {'task': 'exposer + lora',    'num_cards': 1, 'time': 0.0},
+    {'task': 'exposer + lora',    'num_cards': 2, 'time': 0.0},
+    {'task': 'exposer + lora',    'num_cards': 4, 'time': 0.0},
+    {'task': 'exposer + adapter', 'num_cards': 1, 'time': 0.0},
+    {'task': 'exposer + adapter', 'num_cards': 2, 'time': 0.0},
+    {'task': 'exposer + adapter', 'num_cards': 4, 'time': 0.0},
+    {'task': 'exposer + bitfit',  'num_cards': 1, 'time': 0.0},
+    {'task': 'exposer + bitfit',  'num_cards': 2, 'time': 0.0},
+    {'task': 'exposer + bitfit',  'num_cards': 4, 'time': 0.0},
 ]
+
+for record in data:
+    for new_re in data_real:
+        if new_re['task'] == record['task'] and new_re['num_cards'] == record['num_cards']:
+            record['time'] = new_re['time']
+            break
+
 
 # Extracting layer labels and corresponding times for each layout
 time_exposer_lora = [1000 * 1024 / d['time'] for d in data if d['task'] == 'exposer + lora']
@@ -40,4 +56,4 @@ plt.legend(loc='upper left', ncol=1, fontsize=8, frameon=False)
 
 # Saving the figure (optional)  
 plt.tight_layout()
-plt.savefig('./experiments/scale-card/exp-scale-card-1.3b.pdf')
+plt.savefig(args.output)

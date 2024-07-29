@@ -1,5 +1,6 @@
 import argparse
 
+import transformers
 import torch
 import os
 from torch.utils.data import DataLoader
@@ -32,12 +33,15 @@ if __name__ == '__main__':
     # init_checkpoint_1 = './reference/' + model_name + '-e2e/checkpoint/model-00001-of-00002.safetensors'
     # init_checkpoint_2 = './reference/' + model_name + '-e2e/checkpoint/model-00002-of-00002.safetensors'
     
-    init_checkpoint = './reference/' + model_name + '/pytorch_model.bin'
+    # init_checkpoint = './reference/' + model_name + '/pytorch_model.bin'
 
     config = get_opt_profile_attn_config(model_name=args.model_name)
     model = OPTForCausalLM(config)
+    
+    hf_model = transformers.OPTForCausalLM.from_pretrained("facebook/opt-1.3b")
+    state_dict = hf_model.state_dict()
 
-    state_dict = torch.load(init_checkpoint, map_location='cpu')
+    # state_dict = torch.load(init_checkpoint, map_location='cpu')
     # state_dict = load_file(init_checkpoint)
     # state_dict_1 = load_file(init_checkpoint_1)
     # state_dict_2 = load_file(init_checkpoint_2)

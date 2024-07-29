@@ -7,6 +7,7 @@ src_dir=$(pwd)/src
 script_dir=$(pwd)/src/experiments/ablation-breakdown
 save_json="$script_dir/record.json"
 
+output_dir=$(pwd)/output_figures
 
 # 检查并创建或清空 JSON 文件
 if [ ! -f "$save_json" ]; then
@@ -80,4 +81,4 @@ python "$script_dir/torch_bitfit.py" \
 
 python "$script_dir/plot_breakdown.py" \
         --save_json "$save_json" \
-        --output "$script_dir/ablation-breakdown.png" 
+        --output "$output_dir/ablation-breakdown.png" 

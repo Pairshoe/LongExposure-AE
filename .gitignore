@@ -169,6 +169,7 @@ checkpoints/placeholder.md
 *__pycache__
 *.DS_Store
 *.vscode
+reference
 */.pytest
 src/**/*.png
 moe_trace

@@ -8,6 +8,8 @@ script_dir=$(pwd)/src/experiments/ablation-operator
 save_json_attn="$script_dir/record_attn.json"
 save_json_mlp="$script_dir/record_mlp.json"
 
+output_dir=$(pwd)/output_figures
+
 # 检查并创建或清空 JSON 文件
 if [ ! -f "$save_json_attn" ]; then
     echo "[]" > "$save_json_attn"
@@ -42,8 +44,8 @@ python "$script_dir/benchmark_mlp.py"  \
 
 python "$script_dir/plot_attn.py" \
         --save_json "$save_json_attn" \
-        --output "$script_dir/exp-ablation-operator-attn.png"
+        --output "$output_dir/exp-ablation-operator-attn.png"
 
 python "$script_dir/plot_mlp.py" \
         --save_json "$save_json_mlp" \
-        --output "$script_dir/exp-ablation-operator-mlp.png"
+        --output "$output_dir/exp-ablation-operator-mlp.png"

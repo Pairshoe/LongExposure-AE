@@ -7,6 +7,8 @@ src_dir=$(pwd)/src
 script_dir=$(pwd)/src/experiments/ablation-attention
 save_json="$script_dir/record.json"
 
+output_dir=$(pwd)/output_figures
+
 
 # 检查并创建或清空 JSON 文件
 if [ ! -f "$save_json" ]; then
@@ -36,8 +38,8 @@ python "$script_dir/benchmark_sparse_attention.py" \
 
 python "$script_dir/plot_benchmark_sparsity.py" \
     --save_json "$save_json" \
-    --output "$script_dir/exp-ablation-attn-sparsity.png"
+    --output "$output_dir/exp-ablation-attn-sparsity.png"
 
 python "$script_dir/plot_benchmark_time.py" \
     --save_json "$save_json" \
-    --output "$script_dir/exp-ablation-attn-time.png"
+    --output "$output_dir/exp-ablation-attn-time.png"
