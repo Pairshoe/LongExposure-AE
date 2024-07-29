@@ -60,7 +60,7 @@ The matching relationship between the names of the generated figures and those i
 | exp-ablation-predictor.png | Figure 11 (Left) |
 | exp-ablation-operator-attn.png | Figure 12 (Left) |
 | exp-ablation-operator-mlp.png | Figure 12 (Right) |
-| exp-scale-model.png | Figure 14 |
+| exp-scale-model.png | Figure 13 |
 
 ### In-depth Reproduction: Plotting from Actual Run
 
