@@ -6,6 +6,7 @@ mkdir -p ./output_figures
 
 python ./plotting/ablation-attention/plot_benchmark_sparsity.py \
     --save_json ./logs/ablation-attention/record.json \
+    --data_path ./logs/ablation-mlp/ \
     --output ./output_figures/exp-ablation-attn-sparsity.png
 
 python ./plotting/ablation-attention/plot_benchmark_time.py \
