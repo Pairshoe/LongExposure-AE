@@ -15,7 +15,7 @@ loss_random_mlp = []
 # Open the file and read line by line
 cur_path = args.cur_path
 
-with open(cur_path+ 'loss_opt-1.3b_bigbird.log', 'r') as file:  # Replace 'loss_data.txt' with your filename  
+with open(cur_path+ 'loss_opt-1.3b_exposer.log', 'r') as file:  # Replace 'loss_data.txt' with your filename  
     for line in file:  
         # Use regex to find patterns that match the loss values  
         match = re.search(r"'loss': (\d+\.\d+)", line)  

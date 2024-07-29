@@ -107,8 +107,8 @@ python "$script_dir/exposer_lora_opt.py" \
 
 python "$script_dir/plot_memory_opt-350m.py" \
     --save_json "$save_json_350m" \
-    --save_png "$output_dir/exp-memory-350m.png"
+    --save_png "$output_dir/exp-overall-memory-350m.png"
 
 python "$script_dir/plot_memory_opt-1.3b.py" \
     --save_json "$save_json_1b" \
-    --save_png "$output_dir/exp-memory-1.3b.png"
+    --save_png "$output_dir/exp-overall-memory-1.3b.png"

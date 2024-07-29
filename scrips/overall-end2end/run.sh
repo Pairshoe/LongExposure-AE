@@ -184,4 +184,4 @@ python "$script_dir/exposer_bitfit.py" \
 
 
 
-python "$script_dir/plot_end2end_a100.py" --save_json "$save_json" --output "$output_dir/exp-end2end-a100.png"
+python "$script_dir/plot_end2end_a100.py" --save_json "$save_json" --output "$output_dir/exp-overall-end2end-a100.png"

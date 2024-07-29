@@ -25,9 +25,9 @@ python "$script_dir/loss_random_mlp.py"  \
         --model_name facebook/opt-1.3b \
         > "$script_dir/loss_opt-1.3b_mlp.log"
 
-python "$script_dir/loss_bigbird.py"  \
+python "$script_dir/loss_exposer.py"  \
         --model_name facebook/opt-1.3b \
-        > "$script_dir/loss_opt-1.3b_bigbird.log"
+        > "$script_dir/loss_opt-1.3b_exposer.log"
 
 python "$script_dir/plot_loss_curve.py" \
         --cur_path "$script_dir" \

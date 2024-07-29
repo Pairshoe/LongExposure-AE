@@ -228,4 +228,4 @@ python "$script_dir/exposer_bitfit.py" \
 
 python "$script_dir/plot_scale_model.py" \
         --save_json "$save_json" \
-        --output "$output_dir/scale_model.png"
+        --output "$output_dir/exp-scale_model.png"
